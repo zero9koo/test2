@@ -21,6 +21,7 @@ const menus = [
 ];
 
 const recommendBtn = document.getElementById('recommend-btn');
+const copyBtn = document.getElementById('copy-btn');
 const filterBtn = document.getElementById('filter-btn');
 const koreanFilterBtn = document.getElementById('korean-filter-btn');
 const westernFilterBtn = document.getElementById('western-filter-btn');
@@ -31,6 +32,7 @@ const menuImageDisplay = document.getElementById('menu-image');
 const darkModeBtn = document.getElementById('dark-mode-btn');
 const dropdownBtn = document.querySelector('.dropdown-btn');
 const dropdownContent = document.querySelector('.dropdown-content');
+const tooltip = document.getElementById('tooltip');
 
 const activeFilters = [];
 
@@ -78,6 +80,16 @@ function showRandomMenu() {
 }
 
 recommendBtn.addEventListener('click', showRandomMenu);
+
+copyBtn.addEventListener('click', () => {
+  const menuName = menuNameDisplay.textContent.replace('삐약! 오늘의 추천 메뉴는... ', '').replace('!', '');
+  navigator.clipboard.writeText(menuName).then(() => {
+    tooltip.classList.add('show');
+    setTimeout(() => {
+      tooltip.classList.remove('show');
+    }, 2000);
+  });
+});
 
 darkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');

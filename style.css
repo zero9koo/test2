@@ -67,11 +67,34 @@ body.dark-mode h1 {
 }
 
 #menu-recommendation {
+  position: relative;
   font-size: 24px;
   font-weight: bold;
   color: var(--text-color-light);
   text-align: center;
   transition: color 0.3s;
+}
+
+#tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#tooltip.show {
+  visibility: visible;
+  opacity: 1;
 }
 
 body.dark-mode #menu-recommendation {
@@ -154,7 +177,7 @@ body.dark-mode #menu-image {
   color: var(--btn-active-text-light);
 }
 
-#recommend-btn {
+#recommend-btn, #copy-btn {
   padding: 10px 20px;
   font-size: 18px;
   border: none;
@@ -163,6 +186,9 @@ body.dark-mode #menu-image {
   transition: background-color 0.3s, color 0.3s;
   font-family: 'Comic Sans MS', cursive;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#recommend-btn {
   background-color: var(--btn-active-bg-light);
   color: var(--btn-active-text-light);
 }
@@ -174,4 +200,18 @@ body.dark-mode #recommend-btn {
 
 #recommend-btn:hover {
   background-color: #ff1493; /* Deep Pink */
+}
+
+#copy-btn {
+  background-color: var(--btn-bg-light);
+  color: var(--btn-text-light);
+}
+
+body.dark-mode #copy-btn {
+  background-color: var(--btn-bg-dark);
+  color: var(--btn-text-dark);
+}
+
+#copy-btn:hover {
+  background-color: var(--btn-hover-bg-light);
 }
