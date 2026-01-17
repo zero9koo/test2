@@ -56,7 +56,7 @@ function updateFilterButtons() {
   etcFilterBtn.classList.toggle('active', activeFilters.includes('etc'));
 }
 
-recommendBtn.addEventListener('click', () => {
+function showRandomMenu() {
   let menuPool = menus;
   if (activeFilters.length > 0) {
     menuPool = menus.filter(menu => activeFilters.includes(menu.category));
@@ -73,7 +73,9 @@ recommendBtn.addEventListener('click', () => {
   menuNameDisplay.textContent = `삐약! 오늘의 추천 메뉴는... ${selectedMenu.name}!`;
   menuImageDisplay.src = selectedMenu.imageUrl;
   menuImageDisplay.style.display = 'block';
-});
+}
+
+recommendBtn.addEventListener('click', showRandomMenu);
 
 darkModeBtn.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
@@ -91,3 +93,5 @@ if (savedTheme === 'dark') {
   document.body.classList.add('dark-mode');
   darkModeBtn.textContent = '☀️';
 }
+
+showRandomMenu();
