@@ -17,12 +17,16 @@ h1 {
   font-family: 'Comic Sans MS', cursive;
 }
 
+#container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 #menu-recommendation {
   font-size: 24px;
   font-weight: bold;
   color: #ff69b4; /* Hot Pink */
-  margin-bottom: 30px;
-  min-height: auto;
   text-align: center;
 }
 
@@ -39,6 +43,7 @@ h1 {
 
 .buttons {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
