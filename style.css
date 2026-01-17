@@ -1,1 +1,74 @@
-/* Add styles here */
+/* style.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #fff0f5; /* Lavender Blush */
+}
+
+h1 {
+  color: #ff69b4; /* Hot Pink */
+  margin-bottom: 20px;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+#menu-recommendation {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff69b4; /* Hot Pink */
+  margin-bottom: 30px;
+  min-height: auto;
+  text-align: center;
+}
+
+#menu-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-top: 20px;
+  display: none;
+  border: 5px solid #ffb6c1; /* Light Pink */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#recommend-btn, #filter-btn, #korean-filter-btn, #western-filter-btn, #chinese-filter-btn, #etc-filter-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #ff69b4; /* Hot Pink */
+  background-color: #ffe4e1; /* Misty Rose */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#recommend-btn {
+  background-color: #ff69b4; /* Hot Pink */
+  color: #fff;
+}
+
+#filter-btn.active, #korean-filter-btn.active, #western-filter-btn.active, #chinese-filter-btn.active, #etc-filter-btn.active {
+  background-color: #ff69b4; /* Hot Pink */
+  color: #fff;
+}
+
+#recommend-btn:hover {
+  background-color: #ff1493; /* Deep Pink */
+}
+
+#filter-btn:hover, #korean-filter-btn:hover, #western-filter-btn:hover, #chinese-filter-btn:hover, #etc-filter-btn:hover {
+  background-color: #ffb6c1; /* Light Pink */
+}

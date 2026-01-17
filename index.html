@@ -3,12 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>Dinner Menu Recommendation</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <h1>삐약아, 오늘 저녁엔 뭘 먹을까?</h1>
+  <div id="menu-recommendation">
+    <p id="menu-name"></p>
+    <img id="menu-image" src="" alt="Recommended Menu Image">
+  </div>
+  <div class="buttons">
+    <button id="recommend-btn">삐약! 골라줘!</button>
+    <button id="filter-btn">일식</button>
+    <button id="korean-filter-btn">한식</button>
+    <button id="western-filter-btn">양식</button>
+    <button id="chinese-filter-btn">중식</button>
+    <button id="etc-filter-btn">기타</button>
+  </div>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
