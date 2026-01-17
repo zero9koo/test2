@@ -1,4 +1,22 @@
-/* style.css */
+:root {
+  --bg-color-light: #fff0f5;
+  --text-color-light: #ff69b4;
+  --btn-bg-light: #ffe4e1;
+  --btn-text-light: #ff69b4;
+  --btn-hover-bg-light: #ffb6c1;
+  --btn-active-bg-light: #ff69b4;
+  --btn-active-text-light: #fff;
+  --img-border-light: #ffb6c1;
+
+  --bg-color-dark: #2c2c2c;
+  --text-color-dark: #ffb6c1;
+  --btn-bg-dark: #505050;
+  --btn-text-dark: #ffb6c1;
+  --btn-hover-bg-dark: #6e6e6e;
+  --btn-active-bg-dark: #ffb6c1;
+  --btn-active-text-dark: #2c2c2c;
+  --img-border-dark: #6e6e6e;
+}
 
 body {
   font-family: 'Arial', sans-serif;
@@ -8,13 +26,38 @@ body {
   justify-content: center;
   height: 100vh;
   margin: 0;
-  background-color: #fff0f5; /* Lavender Blush */
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+#dark-mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#dark-mode-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 h1 {
-  color: #ff69b4; /* Hot Pink */
+  color: var(--text-color-light);
   margin-bottom: 20px;
   font-family: 'Comic Sans MS', cursive;
+  transition: color 0.3s;
+}
+
+body.dark-mode h1 {
+  color: var(--text-color-dark);
 }
 
 #container {
@@ -26,8 +69,13 @@ h1 {
 #menu-recommendation {
   font-size: 24px;
   font-weight: bold;
-  color: #ff69b4; /* Hot Pink */
+  color: var(--text-color-light);
   text-align: center;
+  transition: color 0.3s;
+}
+
+body.dark-mode #menu-recommendation {
+  color: var(--text-color-dark);
 }
 
 #menu-image {
@@ -36,9 +84,14 @@ h1 {
   object-fit: cover;
   margin-top: 20px;
   display: none;
-  border: 5px solid #ffb6c1; /* Light Pink */
+  border: 5px solid var(--img-border-light);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+}
+
+body.dark-mode #menu-image {
+  border-color: var(--img-border-dark);
 }
 
 .buttons {
@@ -50,24 +103,48 @@ h1 {
 #recommend-btn, #filter-btn, #korean-filter-btn, #western-filter-btn, #chinese-filter-btn, #etc-filter-btn {
   padding: 10px 20px;
   font-size: 18px;
-  color: #ff69b4; /* Hot Pink */
-  background-color: #ffe4e1; /* Misty Rose */
+  color: var(--btn-text-light);
+  background-color: var(--btn-bg-light);
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
   font-family: 'Comic Sans MS', cursive;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode #recommend-btn, 
+body.dark-mode #filter-btn, 
+body.dark-mode #korean-filter-btn, 
+body.dark-mode #western-filter-btn, 
+body.dark-mode #chinese-filter-btn, 
+body.dark-mode #etc-filter-btn {
+  color: var(--btn-text-dark);
+  background-color: var(--btn-bg-dark);
+}
+
 #recommend-btn {
-  background-color: #ff69b4; /* Hot Pink */
-  color: #fff;
+  background-color: var(--btn-active-bg-light);
+  color: var(--btn-active-text-light);
+}
+
+body.dark-mode #recommend-btn {
+  background-color: var(--btn-active-bg-dark);
+  color: var(--btn-active-text-dark);
 }
 
 #filter-btn.active, #korean-filter-btn.active, #western-filter-btn.active, #chinese-filter-btn.active, #etc-filter-btn.active {
-  background-color: #ff69b4; /* Hot Pink */
-  color: #fff;
+  background-color: var(--btn-active-bg-light);
+  color: var(--btn-active-text-light);
+}
+
+body.dark-mode #filter-btn.active, 
+body.dark-mode #korean-filter-btn.active, 
+body.dark-mode #western-filter-btn.active, 
+body.dark-mode #chinese-filter-btn.active, 
+body.dark-mode #etc-filter-btn.active {
+  background-color: var(--btn-active-bg-dark);
+  color: var(--btn-active-text-dark);
 }
 
 #recommend-btn:hover {
@@ -75,5 +152,13 @@ h1 {
 }
 
 #filter-btn:hover, #korean-filter-btn:hover, #western-filter-btn:hover, #chinese-filter-btn:hover, #etc-filter-btn:hover {
-  background-color: #ffb6c1; /* Light Pink */
+  background-color: var(--btn-hover-bg-light);
+}
+
+body.dark-mode #filter-btn:hover, 
+body.dark-mode #korean-filter-btn:hover, 
+body.dark-mode #western-filter-btn:hover, 
+body.dark-mode #chinese-filter-btn:hover, 
+body.dark-mode #etc-filter-btn:hover {
+  background-color: var(--btn-hover-bg-dark);
 }

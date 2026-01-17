@@ -28,6 +28,7 @@ const chineseFilterBtn = document.getElementById('chinese-filter-btn');
 const etcFilterBtn = document.getElementById('etc-filter-btn');
 const menuNameDisplay = document.getElementById('menu-name');
 const menuImageDisplay = document.getElementById('menu-image');
+const darkModeBtn = document.getElementById('dark-mode-btn');
 
 const activeFilters = [];
 
@@ -73,3 +74,20 @@ recommendBtn.addEventListener('click', () => {
   menuImageDisplay.src = selectedMenu.imageUrl;
   menuImageDisplay.style.display = 'block';
 });
+
+darkModeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  if (document.body.classList.contains('dark-mode')) {
+    darkModeBtn.textContent = '☀️';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    darkModeBtn.textContent = '🌙';
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-mode');
+  darkModeBtn.textContent = '☀️';
+}
