@@ -29,6 +29,8 @@ const etcFilterBtn = document.getElementById('etc-filter-btn');
 const menuNameDisplay = document.getElementById('menu-name');
 const menuImageDisplay = document.getElementById('menu-image');
 const darkModeBtn = document.getElementById('dark-mode-btn');
+const dropdownBtn = document.querySelector('.dropdown-btn');
+const dropdownContent = document.querySelector('.dropdown-content');
 
 const activeFilters = [];
 
@@ -92,6 +94,22 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   document.body.classList.add('dark-mode');
   darkModeBtn.textContent = '☀️';
+}
+
+dropdownBtn.addEventListener('click', () => {
+  dropdownContent.classList.toggle('show');
+});
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-btn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      const openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
 
 showRandomMenu();
