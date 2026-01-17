@@ -66,6 +66,13 @@ body.dark-mode h1 {
   gap: 20px;
 }
 
+.menu-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 #menu-recommendation {
   position: relative;
   font-size: 24px;
@@ -85,7 +92,7 @@ body.dark-mode h1 {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  bottom: 100%;
   left: 50%;
   margin-left: -60px;
   opacity: 0;
@@ -177,7 +184,7 @@ body.dark-mode #menu-image {
   color: var(--btn-active-text-light);
 }
 
-#recommend-btn, #copy-btn {
+#recommend-btn {
   padding: 10px 20px;
   font-size: 18px;
   border: none;
@@ -186,9 +193,6 @@ body.dark-mode #menu-image {
   transition: background-color 0.3s, color 0.3s;
   font-family: 'Comic Sans MS', cursive;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#recommend-btn {
   background-color: var(--btn-active-bg-light);
   color: var(--btn-active-text-light);
 }
@@ -203,6 +207,14 @@ body.dark-mode #recommend-btn {
 }
 
 #copy-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: var(--btn-bg-light);
   color: var(--btn-text-light);
 }
