@@ -130,61 +130,12 @@ body.dark-mode #menu-image {
   gap: 10px;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+.main-buttons, .filter-buttons {
+  display: flex;
+  gap: 10px;
 }
 
-.dropdown-btn {
-  padding: 10px 20px;
-  font-size: 18px;
-  color: var(--btn-text-light);
-  background-color: var(--btn-bg-light);
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  font-family: 'Comic Sans MS', cursive;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: var(--bg-color-light);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 10px;
-}
-
-.dropdown-content.show {
-  display: block;
-}
-
-.dropdown-content button {
-  color: var(--text-color-light);
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 16px;
-}
-
-.dropdown-content button:hover {
-  background-color: var(--btn-hover-bg-light);
-}
-
-.dropdown-content button.active {
-  background-color: var(--btn-active-bg-light);
-  color: var(--btn-active-text-light);
-}
-
-#recommend-btn, #copy-btn, #share-btn {
+#recommend-btn, #copy-btn, #share-btn, #filter-btn, #korean-filter-btn, #western-filter-btn, #chinese-filter-btn, #etc-filter-btn {
   padding: 10px 20px;
   font-size: 18px;
   border: none;
@@ -209,18 +160,32 @@ body.dark-mode #recommend-btn {
   background-color: #ff1493; /* Deep Pink */
 }
 
-#copy-btn, #share-btn {
+#copy-btn, #share-btn, #filter-btn, #korean-filter-btn, #western-filter-btn, #chinese-filter-btn, #etc-filter-btn {
   background-color: var(--btn-bg-light);
   color: var(--btn-text-light);
 }
 
-body.dark-mode #copy-btn, body.dark-mode #share-btn {
+body.dark-mode #copy-btn, body.dark-mode #share-btn, body.dark-mode #filter-btn, body.dark-mode #korean-filter-btn, body.dark-mode #western-filter-btn, body.dark-mode #chinese-filter-btn, body.dark-mode #etc-filter-btn {
   background-color: var(--btn-bg-dark);
   color: var(--btn-text-dark);
 }
 
-#copy-btn:hover, #share-btn:hover {
+#copy-btn:hover, #share-btn:hover, #filter-btn:hover, #korean-filter-btn:hover, #western-filter-btn:hover, #chinese-filter-btn:hover, #etc-filter-btn:hover {
   background-color: var(--btn-hover-bg-light);
+}
+
+#filter-btn.active, #korean-filter-btn.active, #western-filter-btn.active, #chinese-filter-btn.active, #etc-filter-btn.active {
+  background-color: var(--btn-active-bg-light);
+  color: var(--btn-active-text-light);
+}
+
+body.dark-mode #filter-btn.active, 
+body.dark-mode #korean-filter-btn.active, 
+body.dark-mode #western-filter-btn.active, 
+body.dark-mode #chinese-filter-btn.active, 
+body.dark-mode #etc-filter-btn.active {
+  background-color: var(--btn-active-bg-dark);
+  color: var(--btn-active-text-dark);
 }
 
 .modal {
