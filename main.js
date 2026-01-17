@@ -22,6 +22,7 @@ const menus = [
 
 const recommendBtn = document.getElementById('recommend-btn');
 const copyBtn = document.getElementById('copy-btn');
+const shareBtn = document.getElementById('share-btn');
 const filterBtn = document.getElementById('filter-btn');
 const koreanFilterBtn = document.getElementById('korean-filter-btn');
 const westernFilterBtn = document.getElementById('western-filter-btn');
@@ -33,6 +34,11 @@ const darkModeBtn = document.getElementById('dark-mode-btn');
 const dropdownBtn = document.querySelector('.dropdown-btn');
 const dropdownContent = document.querySelector('.dropdown-content');
 const tooltip = document.getElementById('tooltip');
+const shareModal = document.getElementById('share-modal');
+const closeBtn = document.querySelector('.close-btn');
+const twitterShareBtn = document.getElementById('twitter-share-btn');
+const facebookShareBtn = document.getElementById('facebook-share-btn');
+const kakaoShareBtn = document.getElementById('kakao-share-btn');
 
 const activeFilters = [];
 
@@ -60,6 +66,8 @@ function updateFilterButtons() {
   etcFilterBtn.classList.toggle('active', activeFilters.includes('etc'));
 }
 
+let currentMenu = '';
+
 function showRandomMenu() {
   let menuPool = menus;
   if (activeFilters.length > 0) {
@@ -69,12 +77,14 @@ function showRandomMenu() {
   if (menuPool.length === 0) {
     menuNameDisplay.textContent = '추천할 메뉴가 없어요!';
     menuImageDisplay.style.display = 'none';
+    currentMenu = '';
     return;
   }
 
   const randomIndex = Math.floor(Math.random() * menuPool.length);
   const selectedMenu = menuPool[randomIndex];
-  menuNameDisplay.textContent = `삐약! 오늘의 추천 메뉴는... ${selectedMenu.name}!`;
+  currentMenu = selectedMenu.name;
+  menuNameDisplay.textContent = `삐약! 오늘의 추천 메뉴는... ${currentMenu}!`;
   menuImageDisplay.src = selectedMenu.imageUrl;
   menuImageDisplay.style.display = 'block';
 }
@@ -82,13 +92,44 @@ function showRandomMenu() {
 recommendBtn.addEventListener('click', showRandomMenu);
 
 copyBtn.addEventListener('click', () => {
-  const menuName = menuNameDisplay.textContent.replace('삐약! 오늘의 추천 메뉴는... ', '').replace('!', '');
-  navigator.clipboard.writeText(menuName).then(() => {
+  if (!currentMenu) return;
+  navigator.clipboard.writeText(currentMenu).then(() => {
     tooltip.classList.add('show');
     setTimeout(() => {
       tooltip.classList.remove('show');
     }, 2000);
   });
+});
+
+shareBtn.addEventListener('click', () => {
+  shareModal.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+  shareModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === shareModal) {
+    shareModal.style.display = 'none';
+  }
+});
+
+twitterShareBtn.addEventListener('click', () => {
+  if (!currentMenu) return;
+  const text = `오늘 저녁은 ${currentMenu} 어때요?`;
+  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+});
+
+facebookShareBtn.addEventListener('click', () => {
+  if (!currentMenu) return;
+  const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+  window.open(url, '_blank');
+});
+
+kakaoShareBtn.addEventListener('click', () => {
+  alert('카카오톡 공유는 현재 지원되지 않습니다.');
 });
 
 darkModeBtn.addEventListener('click', () => {
